@@ -1,0 +1,20 @@
+FROM registry.fedoraproject.org/fedora-minimal@sha256:0ddce246625479dcf8ea8404e6e5342c27e35f6af579428fc59336a4bea67afe
+
+RUN microdnf -y upgrade
+RUN microdnf -y install \
+  python \
+  git-core \
+  golang \
+  /usr/bin/pip \
+  /usr/bin/poetry \
+  /usr/bin/make \
+  /usr/bin/tox
+
+ADD . /src
+
+RUN mv /src/image/RH-IT-Root-CA.crt /etc/pki/ca-trust/source/anchors && update-ca-trust
+ENV REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+
+RUN cd /src/glab && make && mv -v bin/glab /usr/local/bin/glab && go clean -r -cache -modcache
+
+ENTRYPOINT ["/bin/bash"]

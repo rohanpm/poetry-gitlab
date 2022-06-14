@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "dockerfile": {
+    "fileMatch": ["(^|/)Containerfile$"]
+  },
+  "git-submodules": {
+    "enabled": true
+  },
+  "automerge": true,
+  "stabilityDays": 3
+}
