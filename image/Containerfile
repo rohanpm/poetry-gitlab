@@ -5,6 +5,7 @@ RUN microdnf -y install \
   python \
   git-core \
   golang \
+  jq \
   /usr/bin/pip \
   /usr/bin/poetry \
   /usr/bin/make \
