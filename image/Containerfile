@@ -16,5 +16,6 @@ RUN mv /src/image/RH-IT-Root-CA.crt /etc/pki/ca-trust/source/anchors && update-c
 ENV REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 
 RUN cd /src/glab && make && mv -v bin/glab /usr/local/bin/glab && go clean -r -cache -modcache
+RUN cd /src/tkn && make bin/tkn && mv -v bin/tkn /usr/local/bin/tkn && go clean -r -cache -modcache
 
 ENTRYPOINT ["/bin/bash", "-c"]
