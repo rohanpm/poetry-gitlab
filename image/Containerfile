@@ -7,6 +7,7 @@ RUN microdnf -y install \
   golang \
   jq \
   krb5-devel \
+  python3-wheel \
   /usr/bin/pip \
   /usr/bin/poetry \
   /usr/bin/make \
