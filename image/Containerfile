@@ -8,19 +8,27 @@ RUN microdnf -y install \
   jq \
   krb5-devel \
   python3-wheel \
+  libffi-devel \
+  /usr/bin/gpg \
   /usr/bin/pip \
   /usr/bin/poetry \
   /usr/bin/make \
   /usr/bin/tox
 
-RUN curl \
-  "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" \
-  -o "awscliv2.zip" \
+ADD . /src
+
+# TODO: pin the aws-cli version with autoupdate
+RUN gpg --import /src/image/awscli.pubkey \
+  && curl \
+  https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
+  -o awscliv2.zip \
+  && curl \
+  https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig \
+  -o awscliv2.sig \
+  && gpg --verify awscliv2.sig awscliv2.zip \
   && unzip -q awscliv2.zip \
   && ./aws/install \
-  && rm -rf aws awscliv2.zip
-
-ADD . /src
+  && rm -rf aws awscliv2.sig awscliv2.zip
 
 RUN mv /src/image/RH-IT-Root-CA.crt /etc/pki/ca-trust/source/anchors && update-ca-trust
 ENV REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
