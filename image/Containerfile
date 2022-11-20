@@ -8,6 +8,7 @@ RUN microdnf -y install \
   jq \
   krb5-devel \
   python3-wheel \
+  libffi-devel \
   /usr/bin/pip \
   /usr/bin/poetry \
   /usr/bin/make \
