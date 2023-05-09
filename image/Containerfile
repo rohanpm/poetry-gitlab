@@ -13,7 +13,8 @@ RUN microdnf -y install \
   /usr/bin/pip \
   /usr/bin/poetry \
   /usr/bin/make \
-  /usr/bin/tox
+  /usr/bin/tox \
+  /usr/bin/openssl
 
 ADD . /src
 
