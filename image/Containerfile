@@ -31,7 +31,7 @@ RUN gpg --import /src/image/awscli.pubkey \
   && ./aws/install \
   && rm -rf aws awscliv2.sig awscliv2.zip
 
-RUN mv /src/image/RH-IT-Root-CA.crt /etc/pki/ca-trust/source/anchors && update-ca-trust
+RUN mv /src/image/*CA.pem /etc/pki/ca-trust/source/anchors && update-ca-trust
 ENV REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 
 RUN \
