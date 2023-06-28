@@ -1,6 +1,6 @@
 [submodule "glab"]
 	path = glab
-	url = https://github.com/profclems/glab
+	url = https://gitlab.com/gitlab-org/cli.git
 [submodule "tkn"]
 	path = tkn
 	url = https://github.com/tektoncd/cli

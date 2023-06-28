@@ -16,7 +16,7 @@ Installed software in the image includes:
 - tox
 - poetry
 - git
-- [glab](https://github.com/profclems/glab) (GitLab CLI)
+- [glab](https://gitlab.com/gitlab-org/cli) (GitLab CLI)
 - [tkn](https://github.com/tektoncd/cli) (Tekton CLI)
 
 ## Example
