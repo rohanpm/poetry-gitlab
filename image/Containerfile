@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-minimal@sha256:32a6240ea4330f6b54ffb93f92401f388125e70f78b1d864de35a634d49b6d10
+FROM registry.fedoraproject.org/fedora-minimal@sha256:9c8c632880a90fb1cf6e306f9cf513edf0f6315107c2c8e2ff85bb3bdcbe9fb4
 
 RUN microdnf -y upgrade
 RUN microdnf -y install \
